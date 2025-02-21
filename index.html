@@ -1,12 +1,38 @@
-<audio id="music" autoplay muted>
-    <source src="https://res.cloudinary.com/dvbwzty4q/video/upload/v1740159033/POU_ESTOURADO_xwtqwl.mp3" type="audio/mpeg">
-</audio>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Музыка</title>
+    <style>
+        body {
+            background-image: url('https://source.unsplash.com/random/1920x1080'); /* Фон */
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #image {
+            width: 300px; /* Размер картинки */
+            height: auto;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <audio id="music" loop>
+        <source src="https://res.cloudinary.com/dvbwzty4q/video/upload/v1740159033/POU_ESTOURADO_xwtqwl.mp3" type="audio/mpeg">
+    </audio>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const audio = document.getElementById('music');
-        audio.muted = false;
-        audio.volume = 1.0; // Включаем звук
-        audio.play().catch(error => console.log('Автовоспроизведение заблокировано'));
-    });
-</script>
+    <img id="image" src="https://i.imgur.com/rNWZFCd.jpeg" alt="Нажмите, чтобы включить музыку">
+
+    <script>
+        document.body.addEventListener('click', function () {
+            const audio = document.getElementById('music');
+            audio.play();
+        }, { once: true }); // Музыка включится при первом клике
+    </script>
+</body>
+</html>
